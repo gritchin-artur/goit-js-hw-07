@@ -35,7 +35,6 @@ const gallery = document.querySelector('ul.gallery')
 
 console.log(galleryItems);
 console.log(gallery);
-// gallery.addEventListener('click', onImgClick);
 
 
 
@@ -43,7 +42,7 @@ function galleryThis(photos) {
     return photos.map(photo => 
         `<li class="gallery__item">
    <a class="gallery__link" href="${photo.original}">
-      <img class="gallery__image" src="${photo.preview}" alt="${photo.description}" title="${photo.description}"/>
+      <img class="gallery__image" src="${photo.preview}" alt="${photo.description}" />
    </a>
 </li>`
     ).join('');
@@ -54,8 +53,13 @@ gallery.innerHTML = addGallaryEl;
 
 
 
-const lightbox = new SimpleLightbox('.gallery a', { /* options */ });
+    const lightbox = new SimpleLightbox('.gallery a', {
+        captionsData: "alt",
+        animationSpeed: '250',
+        captionPosition: 'bottom',
+    });
+    
 
-// import SimpleLightbox from "simplelightbox";
-// import SimpleLightbox from "simplelightbox/dist/simple-lightbox.esm"
+
+
 
